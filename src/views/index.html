@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexoBank | Banca del Futuro</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top glass-panel border-bottom border-white-10">
+      <div class="container-xxl">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <div class="d-flex align-items-center gap-2">
+            <span class="material-symbols-outlined text-nexo-orange fs-1">currency_bitcoin</span>
+            <span class="fs-3 fw-bold text-white">NEXO<span class="text-nexo-orange">BANK</span></span>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <div class="position-relative">
+              <a href="/user" class="d-flex align-items-center text-decoration-none">
+                <div class="position-relative">
+                  <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=ff6b00&color=fff&size=128"
+                    alt="Perfil" id="user-avatar"
+                    class="rounded-circle border border-2 border-nexo-orange object-fit-cover"
+                    style="width:40px;height:40px" />
+                  <div class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-dark"
+                    style="width:12px;height:12px"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cabecera -->
+    <div class="position-relative overflow-hidden" style="padding-top:6rem;padding-bottom:3rem">
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index:0;opacity:0.2">
+        <div class="w-100 h-100 bg-gradient-nexo"></div>
+      </div>
+
+      <div class="container-xxl position-relative" style="z-index: 10">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <h2 class="text-secondary text-uppercase mb-1" style="font-size:0.875rem;letter-spacing:0.05em">
+              Bienvenido de nuevo
+            </h2>
+            <h1 class="display-4 fw-bold text-white">
+              Hola, <span class="text-gradient-nexo">Alex</span>
+            </h1>
+          </div>
+          <div class="text-end d-none d-sm-block">
+            <p class="text-secondary small mb-1">Saldo Total</p>
+            <div class="display-4 fw-bold text-white d-flex align-items-center justify-content-end gap-2 neon-text">
+              <span>€</span>
+              <span id="total-balance">24.581,00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Tarjeta + acciones -->
+          <div class="col-lg-4">
+            <div class="d-flex flex-column gap-4">
+              <!-- Tarjeta de credito con flip -->
+              <div class="perspective-1000 cursor-pointer" style="height:224px" onclick="flipCard()">
+                <div class="position-relative preserve-3d transition-all w-100 h-100 shadow-lg rounded-3"
+                  id="credit-card-inner" style="transition-duration:0.7s">
+                  <!-- Frente -->
+                  <div class="position-absolute backface-hidden w-100 h-100 rounded-3 overflow-hidden border border-white-10 credit-card-bg p-4 d-flex flex-column justify-content-between">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <span class="material-symbols-outlined text-white-80" style="font-size:2rem">contactless</span>
+                      <span class="fw-bold fst-italic fs-4 text-white" style="letter-spacing:0.1em">NEXO</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="rounded bg-gradient-yellow d-flex align-items-center justify-content-center"
+                        style="width:48px;height:40px;opacity:0.9">
+                        <span class="material-symbols-outlined text-dark fs-4">memory</span>
+                      </div>
+                      <span class="material-symbols-outlined text-white-50 fs-4">wifi</span>
+                    </div>
+                    <div>
+                      <p class="text-white-60 mb-1" style="font-size:0.75rem;letter-spacing:0.1em">NÚMERO DE TARJETA</p>
+                      <p class="text-white fs-5 font-monospace text-shadow" style="letter-spacing:0.05em">
+                        •••• •••• •••• 4289
+                      </p>
+                      <div class="d-flex justify-content-between align-items-end mt-3">
+                        <div>
+                          <p class="text-white-40 mb-0" style="font-size:0.625rem">TITULAR</p>
+                          <p class="text-white small fw-medium text-uppercase mb-0">Alex Morgan</p>
+                        </div>
+                        <div>
+                          <p class="text-white-40 mb-0" style="font-size:0.625rem">EXPIRA</p>
+                          <p class="text-white small fw-medium mb-0">12/28</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dorso -->
+                  <div class="position-absolute rotate-y-180 backface-hidden w-100 h-100 rounded-3 overflow-hidden bg-nexo-card border border-white-10 p-4 d-flex flex-column justify-content-between">
+                    <div class="w-100 bg-dark position-absolute top-0 start-0 end-0"
+                      style="height:40px;margin-top:1rem;margin-left:-1.5rem;margin-right:-1.5rem"></div>
+                    <div style="margin-top:3rem">
+                      <p class="text-end text-white-80 small fw-bold p-2 rounded">CVC: 123</p>
+                      <p class="text-secondary mt-3" style="font-size:0.75rem;line-height:1.5">
+                        Esta tarjeta es propiedad de NexoBank. Si la encuentra,
+                        por favor devuélvala a la sucursal más cercana o destrúyala.
+                      </p>
+                    </div>
+                    <div class="text-end">
+                      <span class="text-nexo-orange fw-bold">NEXO INFINITE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Acciones rapidas -->
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="action-btn" onclick="showToast('info', 'Funcionalidad en desarrollo', 'Enviar dinero')">
+                    <div class="icon-box"><span class="material-symbols-outlined">send</span></div>
+                    <span class="label">Enviar Dinero</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="action-btn" onclick="showToast('info', 'Calculando oferta...', 'Préstamo')">
+                    <div class="icon-box"><span class="material-symbols-outlined">real_estate_agent</span></div>
+                    <span class="label">Pedir Préstamo</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="action-btn" onclick="showToast('success', 'Código QR generado', 'Ingresar')">
+                    <div class="icon-box"><span class="material-symbols-outlined">add_card</span></div>
+                    <span class="label">Ingresar</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="action-btn" onclick="showToast('info', 'Abriendo servicios...', 'Más')">
+                    <div class="icon-box"><span class="material-symbols-outlined">apps</span></div>
+                    <span class="label">Servicios</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel derecho -->
+          <div class="col-lg-8">
+            <div class="d-flex flex-column gap-4">
+              <!-- Stats -->
+              <div class="row g-3">
+                <div class="col-6 col-md-3">
+                  <div class="glass-panel p-3 rounded-3 border-start border-4 border-success">
+                    <p class="text-white-80 mb-1" style="font-size:0.75rem">Ingresos</p>
+                    <p class="fs-5 fw-bold text-white mb-0">+ €<span id="stat-income">4,250</span></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="glass-panel p-3 rounded-3 border-start border-4 border-danger">
+                    <p class="text-white-80 mb-1" style="font-size:0.75rem">Gastos</p>
+                    <p class="fs-5 fw-bold text-white mb-0">- €<span id="stat-expense">1,840</span></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="glass-panel p-3 rounded-3 border-start border-4 border-primary">
+                    <p class="text-white-80 mb-1" style="font-size:0.75rem">Ahorro</p>
+                    <p class="fs-5 fw-bold text-white mb-0">€<span id="stat-savings">12,500</span></p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="glass-panel p-3 rounded-3 border-start border-4 border-nexo-orange">
+                    <p class="text-white-80 mb-1" style="font-size:0.75rem">Puntos Nexo</p>
+                    <p class="fs-5 fw-bold text-white mb-0">8,450</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Movimientos -->
+              <div class="glass-panel rounded-3 p-4 d-flex flex-column" style="height:500px">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h3 class="fs-5 fw-semibold mb-0">Movimientos Recientes</h3>
+                  <div class="d-flex gap-2">
+                    <button onclick="filterTransactions('todos')" class="btn btn-sm btn-nexo rounded-pill" style="font-size:0.75rem">Todos</button>
+                    <button onclick="filterTransactions('ingreso')" class="btn btn-sm btn-outline-secondary rounded-pill" style="font-size:0.75rem">Ingresos</button>
+                    <button onclick="filterTransactions('gasto')" class="btn btn-sm btn-outline-secondary rounded-pill" style="font-size:0.75rem">Gastos</button>
+                  </div>
+                </div>
+                <div class="overflow-auto pe-2 flex-grow-1" id="transaction-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="position-fixed bottom-0 end-0 m-3 translate-y-toast opacity-0 transition-all"
+      style="z-index:1060;transition-duration:0.3s">
+      <div class="bg-nexo-card border border-start border-4 border-nexo-orange text-white px-4 py-3 rounded shadow-lg d-flex align-items-center gap-3">
+        <span id="toast-icon" class="material-symbols-outlined text-nexo-orange">check_circle</span>
+        <div>
+          <h4 id="toast-title" class="fw-bold mb-0" style="font-size:0.875rem">Éxito</h4>
+          <p id="toast-message" class="text-secondary mb-0" style="font-size:0.75rem">Operación completada.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

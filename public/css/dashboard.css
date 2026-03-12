@@ -1,0 +1,99 @@
+/* =========================================
+   NexoBank - Estilos Dashboard (index.html)
+   ========================================= */
+
+/* Tarjeta de transaccion */
+.transaction-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.transaction-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.transaction-card.ingreso::before {
+    background-color: #10b981;
+    box-shadow: 0 0 10px rgba(16,185,129,0.5);
+}
+.transaction-card.gasto::before {
+    background-color: #ef4444;
+    box-shadow: 0 0 10px rgba(239,68,68,0.5);
+}
+.transaction-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
+}
+.transaction-card:hover::before { opacity: 1; }
+
+.transaction-icon-box {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease;
+}
+.transaction-card:hover .transaction-icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Botones de acciones rapidas */
+.action-btn {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 1rem;
+    padding: 1.5rem 1rem;
+    transition: all 0.3s ease;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(255,107,0,0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.action-btn:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,107,0,0.5);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
+}
+.action-btn:hover::before { opacity: 1; }
+
+.action-btn .icon-box {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+.action-btn:hover .icon-box {
+    background: #ff6b00;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255,107,0,0.4);
+}
+
+.action-btn span.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease;
+}
+.action-btn:hover span.label { color: white; }

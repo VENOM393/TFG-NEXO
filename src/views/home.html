@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexoBank | La Banca del Futuro</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/landing.css" />
+  </head>
+  <body class="bg-black text-white overflow-x-hidden">
+
+    <!-- Fondo animado -->
+    <div class="position-fixed top-0 start-0 w-100 h-100" style="z-index: -1">
+      <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-nexo-dark"></div>
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="opacity: 0.3">
+        <div class="position-absolute bg-nexo-orange-glow rounded-circle animate-pulse-glow"
+          style="top:20%;left:10%;width:500px;height:500px;filter:blur(100px)"></div>
+        <div class="position-absolute bg-red-glow rounded-circle animate-pulse-glow"
+          style="bottom:10%;right:5%;width:500px;height:500px;filter:blur(100px);animation-delay:1s"></div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top nav-glass py-3">
+      <div class="container-xxl">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <span class="material-symbols-outlined text-nexo-orange fs-2">currency_bitcoin</span>
+          <span class="fw-bold fs-4 tracking-tight text-white">NEXO<span class="text-nexo-orange">BANK</span></span>
+        </a>
+        <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link text-white-80 hover-nexo-orange px-3" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link text-white-80 hover-nexo-orange px-3" href="#features">Funcionalidades</a></li>
+            <li class="nav-item"><a class="nav-link text-white-80 hover-nexo-orange px-3" href="#seguridad">Seguridad</a></li>
+
+          </ul>
+          <div class="d-flex gap-3">
+            <a href="/login" class="btn btn-outline-light border-white-10 text-white hover-bg-white-10 px-4">Entrar</a>
+            <a href="/login" class="btn btn-nexo px-4">Registrarse</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero-section d-flex align-items-center min-vh-100">
+      <div class="container-xxl">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 pt-5 pt-lg-0">
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-white-5 border border-white-10 mb-4 animate-float">
+              <span class="badge bg-nexo-orange rounded-pill">NUEVO</span>
+              <span class="small text-white-80">Sistema de Cashback 3.0 activado</span>
+            </div>
+
+            <h1 class="display-3 fw-bold mb-4 lh-sm">
+              Tu dinero,<br />
+              <span class="text-gradient-nexo">Sin Límites.</span>
+            </h1>
+
+            <p class="lead text-white-60 mb-5" style="max-width: 500px">
+              Experimenta la banca del futuro con NexoBank. Transacciones
+              instantáneas, seguridad de grado militar y control total de tus
+              finanzas en una sola app.
+            </p>
+
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a href="/login" class="btn btn-nexo btn-lg px-5 py-3 d-flex align-items-center justify-content-center gap-2">
+                <span>Comenzar Ahora</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <a href="#features" class="btn btn-outline-light btn-lg px-5 py-3 border-white-10 hover-bg-white-10">
+                Saber más
+              </a>
+            </div>
+
+            <div class="mt-5 d-flex gap-5">
+              <div>
+                <div class="h3 fw-bold mb-0">2M+</div>
+                <div class="small text-secondary">Usuarios Activos</div>
+              </div>
+              <div>
+                <div class="h3 fw-bold mb-0 text-nexo-orange">$10B+</div>
+                <div class="small text-secondary">Transacciones</div>
+              </div>
+              <div>
+                <div class="h3 fw-bold mb-0">99.9%</div>
+                <div class="small text-secondary">Uptime</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-none d-lg-block position-relative">
+            <!-- Tarjeta 3D -->
+            <div class="hero-image-container floating-card perspective-1000">
+              <div class="glass-panel p-4 rounded-4 border-white-10 transform-style-3d rotate-y-12"
+                style="transform:rotateY(-10deg) rotateX(5deg);height:400px;display:flex;flex-direction:column;justify-content:space-between">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined text-nexo-orange fs-1">currency_bitcoin</span>
+                    <span class="fw-bold fs-3 fst-italic">NEXO</span>
+                  </div>
+                  <span class="material-symbols-outlined text-white-40 fs-1">contactless</span>
+                </div>
+
+                <div class="ms-2">
+                  <div class="rounded bg-gradient-yellow d-flex align-items-center justify-content-center shadow-sm"
+                    style="width:50px;height:40px;opacity:0.9">
+                    <span class="material-symbols-outlined text-dark fs-3">memory</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="h3 font-monospace mb-4 text-shadow" style="letter-spacing: 4px">
+                    4532 •••• •••• 9821
+                  </div>
+                  <div class="d-flex justify-content-between align-items-end">
+                    <div>
+                      <div class="small text-white-40 text-uppercase mb-1">Titular</div>
+                      <div class="fw-medium">ALEX JOHNSON</div>
+                    </div>
+                    <div>
+                      <div class="small text-white-40 text-uppercase mb-1">Expira</div>
+                      <div class="fw-medium">12/28</div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <span class="fw-bold fst-italic text-white-80" style="font-size: 1.5rem">VISA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="position-absolute bg-nexo-orange rounded-circle opacity-20"
+                style="width:200px;height:200px;top:-50px;right:-50px;filter:blur(60px);z-index:-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Funcionalidades -->
+    <section id="features" class="py-5 bg-black">
+      <div class="container-xxl py-5">
+        <div class="text-center mb-5">
+          <span class="text-nexo-orange text-uppercase fw-bold small tracking-wider">Por qué elegirnos</span>
+          <h2 class="display-5 fw-bold mt-2">Finanzas diseñadas para ti</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-panel p-4 rounded-4 h-100 feature-card position-relative overflow-hidden group">
+              <div class="position-absolute top-0 end-0 p-3 opacity-10">
+                <span class="material-symbols-outlined fs-1 text-white">shield</span>
+              </div>
+              <div class="w-12 h-12 rounded-3 bg-nexo-orange-glow d-flex align-items-center justify-content-center mb-4 text-nexo-orange"
+                style="width:48px;height:48px">
+                <span class="material-symbols-outlined">shield</span>
+              </div>
+              <h3 class="h4 fw-bold mb-3">Seguridad Grado Militar</h3>
+              <p class="text-secondary mb-0">
+                Tus datos y transacciones protegidos por encriptación de extremo
+                a extremo y autenticación biométrica avanzada.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-panel p-4 rounded-4 h-100 feature-card">
+              <div class="w-12 h-12 rounded-3 bg-white-10 d-flex align-items-center justify-content-center mb-4 text-white"
+                style="width:48px;height:48px">
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
+              <h3 class="h4 fw-bold mb-3">Ultrarrapidez</h3>
+              <p class="text-secondary mb-0">
+                Transferencias instantáneas entre usuarios NexoBank y
+                liquidación en tiempo real para todos tus pagos.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-panel p-4 rounded-4 h-100 feature-card">
+              <div class="w-12 h-12 rounded-3 bg-white-10 d-flex align-items-center justify-content-center mb-4 text-white"
+                style="width:48px;height:48px">
+                <span class="material-symbols-outlined">trending_up</span>
+              </div>
+              <h3 class="h4 fw-bold mb-3">Inversión Inteligente</h3>
+              <p class="text-secondary mb-0">
+                Herramientas de análisis financiero potenciadas por IA para
+                maximizar el rendimiento de tus ahorros.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5 position-relative overflow-hidden">
+      <div class="container-xxl py-5">
+        <div class="glass-panel rounded-5 p-5 text-center position-relative overflow-hidden border-0">
+          <div class="position-absolute bg-gradient-nexo top-0 start-0 w-100 h-100 opacity-20"></div>
+          <div class="position-relative z-1 py-4">
+            <h2 class="display-4 fw-bold mb-4">Empieza tu viaje financiero hoy</h2>
+            <p class="lead text-white-60 mb-5 mx-auto" style="max-width: 600px">
+              Únete a la revolución bancaria. Abre tu cuenta en menos de 5
+              minutos y recibe tu tarjeta virtual al instante.
+            </p>
+            <a href="/login" class="btn btn-nexo btn-lg px-5 py-4 fs-5 fw-bold d-inline-flex align-items-center gap-2">
+              <span class="material-symbols-outlined">account_balance_wallet</span>
+              <span>Abrir Cuenta Gratuita</span>
+            </a>
+            <div class="mt-4 text-secondary small">
+              No se requiere tarjeta de crédito • Cancelación en cualquier momento
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-5 border-top border-white-10">
+      <div class="container-xxl">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <a class="d-flex align-items-center gap-2 text-decoration-none text-white mb-4" href="#">
+              <span class="material-symbols-outlined text-nexo-orange fs-2">currency_bitcoin</span>
+              <span class="fw-bold fs-4">NEXO<span class="text-nexo-orange">BANK</span></span>
+            </a>
+            <p class="text-secondary mb-4">
+              Reimaginando la banca para la era digital. Seguro, rápido y siempre contigo.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-secondary hover-text-white"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-secondary hover-text-white"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-secondary hover-text-white"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h5 class="fw-bold mb-4">Producto</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Tarjeta</a></li>
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Inversiones</a></li>
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Préstamos</a></li>
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Cripto</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h5 class="fw-bold mb-4">Compañía</h5>
+            <ul class="list-unstyled d-flex flex-column gap-2">
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Nosotros</a></li>
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Blog</a></li>
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Carreras</a></li>
+              <li><a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Prensa</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4">
+            <h5 class="fw-bold mb-4">Mantente informado</h5>
+            <p class="text-secondary small mb-3">
+              Suscríbete a nuestro boletín para recibir las últimas novedades.
+            </p>
+            <div class="input-group">
+              <input type="email" class="form-control bg-white-5 border-white-10 text-white" placeholder="Tu email" />
+              <button class="btn btn-nexo" type="button">Suscribir</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-top border-white-10 mt-5 pt-4 text-center text-secondary small">
+          <p>© 2026 NexoBank. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/landing.js"></script>
+  </body>
+</html>
