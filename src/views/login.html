@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | NexoBank</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100 overflow-hidden">
+
+    <!-- Fondo animado -->
+    <div class="position-fixed top-0 start-0 w-100 h-100" style="z-index: 0">
+      <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-nexo-dark"></div>
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="opacity: 0.3">
+        <div class="position-absolute bg-nexo-orange-glow rounded-circle animate-pulse-glow"
+          style="top:25%;left:25%;width:384px;height:384px;filter:blur(80px)"></div>
+        <div class="position-absolute bg-red-glow rounded-circle animate-pulse-glow"
+          style="bottom:25%;right:25%;width:384px;height:384px;filter:blur(80px);animation-delay:1s"></div>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="position-relative d-flex align-items-center justify-content-center min-vh-100 px-3 py-5" style="z-index: 10">
+      <div class="w-100" style="max-width: 448px">
+
+        <!-- Logo -->
+        <div class="text-center mb-4 animate-float">
+          <a href="/" class="text-decoration-none text-white">
+            <div class="d-flex align-items-center justify-content-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-nexo-orange" style="font-size: 4rem">currency_bitcoin</span>
+              <h1 class="display-4 fw-bold mb-0" style="letter-spacing: -0.05em">
+                NEXO<span class="text-nexo-orange">BANK</span>
+              </h1>
+            </div>
+            <p class="text-secondary small">Banca del Futuro</p>
+          </a>
+        </div>
+
+        <!-- Formulario -->
+        <div class="glass-panel rounded-3 p-4 p-md-5 shadow-lg border border-white-10">
+          <div class="mb-4">
+            <h2 class="h3 fw-bold text-white mb-2">Bienvenido</h2>
+            <p class="text-secondary small">Ingresa tus credenciales para continuar</p>
+          </div>
+
+          <form id="login-form">
+            <!-- Usuario -->
+            <div class="mb-4">
+              <label class="form-label text-secondary text-uppercase" style="font-size:0.75rem;letter-spacing:0.05em">
+                Usuario o Email
+              </label>
+              <div class="position-relative">
+                <span class="material-symbols-outlined position-absolute text-secondary fs-5"
+                  style="left:1rem;top:50%;transform:translateY(-50%)">person</span>
+                <input type="text" id="username" placeholder="alex@nexobank.com"
+                  class="form-control bg-black-40 border-white-10 text-white focus-nexo ps-5 py-3" required />
+              </div>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-4">
+              <label class="form-label text-secondary text-uppercase" style="font-size:0.75rem;letter-spacing:0.05em">
+                Contraseña
+              </label>
+              <div class="position-relative">
+                <span class="material-symbols-outlined position-absolute text-secondary fs-5"
+                  style="left:1rem;top:50%;transform:translateY(-50%)">lock</span>
+                <input type="password" id="password" placeholder="••••••••"
+                  class="form-control bg-black-40 border-white-10 text-white focus-nexo py-3"
+                  style="padding-left:3rem;padding-right:3rem" required />
+                <button type="button" onclick="togglePassword()"
+                  class="btn border-0 p-0 position-absolute text-secondary hover-nexo-orange fs-5"
+                  style="right:1rem;top:50%;transform:translateY(-50%)">
+                  <span class="material-symbols-outlined">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Recordar + Olvidaste -->
+            <div class="d-flex align-items-center justify-content-between mb-4 small">
+              <label class="d-flex align-items-center gap-2 cursor-pointer user-select-none">
+                <input type="checkbox" id="remember"
+                  class="form-check-input bg-black-40 border-white-10 text-nexo-orange" style="cursor:pointer" />
+                <span class="text-secondary hover-text-white">Recordarme</span>
+              </label>
+              <a href="#" class="text-nexo-orange text-decoration-none hover-text-white">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+
+            <!-- Boton -->
+            <button type="submit" class="btn btn-nexo w-100 fw-bold py-3 d-flex justify-content-center align-items-center gap-2">
+              <span>Iniciar Sesión</span>
+              <span class="material-symbols-outlined arrow-forward">arrow_forward</span>
+            </button>
+
+            <!-- Credenciales demo -->
+            <div class="mt-4 p-3 rounded" style="background-color:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.3)">
+              <p class="d-flex align-items-center gap-2 mb-2" style="font-size:0.75rem">
+                <span class="material-symbols-outlined text-nexo-orange" style="font-size:0.875rem">info</span>
+                <span class="fw-semibold text-white">Credenciales de Demo:</span>
+              </p>
+              <div class="font-monospace" style="font-size:0.75rem">
+                <p class="text-secondary mb-1">
+                  Usuario: <span class="text-nexo-orange">demo</span> o
+                  <span class="text-nexo-orange">alex</span>
+                </p>
+                <p class="text-secondary mb-0">
+                  Contraseña: <span class="text-nexo-orange">1234</span>
+                </p>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-4 text-center text-secondary" style="font-size: 0.75rem">
+          <p class="mb-2">© 2026 NexoBank. Todos los derechos reservados.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Términos</a>
+            <span>•</span>
+            <a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Privacidad</a>
+            <span>•</span>
+            <a href="#" class="text-secondary text-decoration-none hover-nexo-orange">Soporte</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+/* ═══════════════════════════════════════════════════════════
+   inversiones.css — NexoBank · Módulo de Inversiones
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Indicador "en vivo" ─────────────────────────────────── */
+.live-dot {
+    display:       inline-block;
+    width:         8px;
+    height:        8px;
+    border-radius: 50%;
+    background:    #10b981;
+    box-shadow:    0 0 6px #10b981;
+    animation:     live-pulse 1.6s ease-in-out infinite;
+    flex-shrink:   0;
+}
+
+@keyframes live-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.45; transform: scale(0.75); }
+}
+
+/* ── NavBar pills ────────────────────────────────────────── */
+.nav-pill-link {
+    transition: color 0.25s ease, background 0.25s ease;
+    font-size: 0.85rem;
+}
+.nav-pill-link:hover { color: #ff6b00 !important; background: rgba(255,107,0,0.08); }
+.nav-pill-active  { background: rgba(255,107,0,0.15) !important; color: #ff6b00 !important; }
+
+/* ── Skeleton loaders ────────────────────────────────────── */
+.skeleton-row {
+    background: linear-gradient(90deg,
+                rgba(255,255,255,0.05) 25%,
+                rgba(255,255,255,0.09) 50%,
+                rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+    0%   { background-position:  200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Ítem de mercado (lista derecha) ─────────────────────── */
+.market-coin-item {
+    transition: background 0.2s ease, transform 0.2s ease;
+    cursor:     default;
+}
+.market-coin-item:hover {
+    background: rgba(255,107,0,0.06);
+    transform:  translateX(3px);
+}
+
+/* ── Posiciones del portfolio ────────────────────────────── */
+.posicion-item {
+    background: rgba(255,255,255,0.02);
+    border:     1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.posicion-item:hover {
+    background:   rgba(255,107,0,0.05);
+    border-color: rgba(255,107,0,0.2);
+    transform:    translateX(5px);
+}
+
+/* Animación de entrada por posición */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-16px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+.posicion-appear {
+    animation: slideInLeft 0.4s ease-out both;
+}
+
+/* ── Badge de moneda (sustituye a la imagen cuando no hay) ── */
+.coin-badge {
+    width:          42px;
+    height:         42px;
+    border-radius:  10px;
+    font-size:      0.62rem;
+    font-weight:    700;
+    letter-spacing: 0.03em;
+    display:        flex;
+    align-items:    center;
+    justify-content:center;
+    flex-shrink:    0;
+    text-align:     center;
+}
+
+/* ── Colores extra para el módulo ────────────────────────── */
+.text-nexo-purple { color: #a855f7 !important; }
+.text-nexo-blue   { color: #3b82f6 !important; }
+
+/* ── Transacción card (reutilizada del dashboard) ────────── */
+.transaction-card {
+    background: rgba(255,255,255,0.02);
+    border:     1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s ease;
+}
+.transaction-card:hover { background: rgba(255,107,0,0.04); }
+
+/* ── Canvas responsivo ───────────────────────────────────── */
+#portfolio-chart,
+#dist-chart { max-width: 100%; }
+
+/* ── Modal oscuro ────────────────────────────────────────── */
+.modal-content.bg-nexo-card .form-control {
+    background-color: rgba(255,255,255,0.05);
+    border-color:     rgba(255,255,255,0.1);
+    color:            #fff;
+}
+.modal-content.bg-nexo-card .form-control:focus {
+    border-color: #ff6b00;
+    box-shadow:   0 0 0 0.2rem rgba(255,107,0,0.2);
+    background-color: rgba(255,255,255,0.07);
+}
+.modal-content.bg-nexo-card select option {
+    background: #1a1a1a;
+    color:      #fff;
+}
+
+/* ── Responsive helpers ──────────────────────────────────── */
+@media (max-width: 576px) {
+    .coin-badge { width: 36px; height: 36px; font-size: 0.58rem; }
+}
