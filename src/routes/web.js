@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers/pageController');
+const chatCtrl = require('../controllers/chatController');
 
 router.get('/', ctrl.home);
 router.get('/dashboard', ctrl.index);
@@ -14,5 +15,7 @@ router.get('/user.html', ctrl.user);
 
 router.get('/inversiones', ctrl.inversiones);
 router.get('/inversiones.html', ctrl.inversiones);
+
+router.post('/api/chat', chatCtrl.chat);
 
 module.exports = router;

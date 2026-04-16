@@ -1,0 +1,542 @@
+/* ═══════════════════════════════════════════════════════════
+   chat.css — NexoBot · Asesor IA de Criptomonedas
+   NexoBank TFG · Glassmorphism dark theme
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Variables locales ───────────────────────────────────── */
+:root {
+    --chat-width:  380px;
+    --chat-height: 570px;
+    --chat-radius: 1.25rem;
+    --chat-bg:     rgba(10, 10, 10, 0.97);
+    --chat-border: rgba(255, 255, 255, 0.06);
+    --msg-bot-bg:  rgba(255, 255, 255, 0.04);
+}
+
+/* ══════════════════════════════════════════════════════════
+   BOTÓN FLOTANTE
+   ══════════════════════════════════════════════════════════ */
+#nexobot-toggle {
+    position:        fixed;
+    bottom:          2rem;
+    right:           2rem;
+    width:           62px;
+    height:          62px;
+    border-radius:   50%;
+    background:      linear-gradient(135deg, #ff6b00 0%, #dc2626 100%);
+    border:          none;
+    cursor:          pointer;
+    z-index:         9998;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    box-shadow:      0 4px 24px rgba(255, 107, 0, 0.5),
+                     0 0 0 0 rgba(255, 107, 0, 0);
+    transition:      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                     box-shadow 0.3s ease;
+    animation:       nexobot-idle-glow 3s ease-in-out infinite;
+}
+
+@keyframes nexobot-idle-glow {
+    0%, 100% { box-shadow: 0 4px 24px rgba(255,107,0,0.45), 0 0 0 0 rgba(255,107,0,0); }
+    50%       { box-shadow: 0 6px 32px rgba(255,107,0,0.65), 0 0 0 8px rgba(255,107,0,0); }
+}
+
+#nexobot-toggle:hover {
+    transform:  scale(1.1);
+    box-shadow: 0 8px 36px rgba(255, 107, 0, 0.7);
+    animation:  none;
+}
+
+#nexobot-toggle .bot-icon {
+    font-size:  1.75rem;
+    color:      #fff;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#nexobot-toggle.is-open .bot-icon {
+    transform: rotate(15deg) scale(0.9);
+}
+
+/* Badge "IA" */
+#nexobot-badge {
+    position:        absolute;
+    top:             -3px;
+    right:           -3px;
+    background:      #10b981;
+    border:          2px solid #050505;
+    border-radius:   10px;
+    min-width:       22px;
+    height:          18px;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    font-size:       0.58rem;
+    font-weight:     800;
+    color:           #fff;
+    letter-spacing:  0.03em;
+    padding:         0 4px;
+    animation:       badge-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+    0%, 100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.6); }
+    50%       { box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);   }
+}
+
+/* ══════════════════════════════════════════════════════════
+   PANEL PRINCIPAL
+   ══════════════════════════════════════════════════════════ */
+#nexobot-panel {
+    position:          fixed;
+    bottom:            calc(2rem + 62px + 14px);
+    right:             2rem;
+    width:             var(--chat-width);
+    height:            var(--chat-height);
+    background:        var(--chat-bg);
+    backdrop-filter:   blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border:            1px solid var(--chat-border);
+    border-radius:     var(--chat-radius);
+    display:           flex;
+    flex-direction:    column;
+    overflow:          hidden;
+    z-index:           9999;
+    box-shadow:        0 0 0 1px rgba(255, 107, 0, 0.07),
+                       0 32px 80px rgba(0, 0, 0, 0.85),
+                       0 0  80px rgba(255, 107, 0, 0.05);
+    /* Animación de entrada */
+    transform-origin:  bottom right;
+    transform:         scale(0.82) translateY(24px);
+    opacity:           0;
+    pointer-events:    none;
+    transition:        transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
+                       opacity   0.25s ease;
+}
+
+#nexobot-panel.is-visible {
+    transform:      scale(1) translateY(0);
+    opacity:        1;
+    pointer-events: all;
+}
+
+/* ── Línea de acento superior ────────────────────────────── */
+#nexobot-panel::before {
+    content:    '';
+    position:   absolute;
+    top:        0;
+    left:       10%;
+    right:      10%;
+    height:     2px;
+    background: linear-gradient(90deg, transparent, #ff6b00, #dc2626, transparent);
+    border-radius: 0 0 4px 4px;
+    opacity:    0.7;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HEADER
+   ══════════════════════════════════════════════════════════ */
+#nexobot-header {
+    padding:         0.9rem 1rem;
+    background:      linear-gradient(135deg,
+                         rgba(255, 107, 0, 0.1) 0%,
+                         rgba(26, 26, 26, 0.6)  100%);
+    border-bottom:   1px solid rgba(255, 107, 0, 0.1);
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    flex-shrink:     0;
+    gap:             0.5rem;
+}
+
+.nexobot-header-info {
+    display:     flex;
+    align-items: center;
+    gap:         0.7rem;
+    min-width:   0;
+}
+
+.nexobot-avatar {
+    width:           40px;
+    height:          40px;
+    border-radius:   50%;
+    background:      linear-gradient(135deg, #ff6b00 0%, #dc2626 100%);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    flex-shrink:     0;
+    position:        relative;
+    box-shadow:      0 0 14px rgba(255, 107, 0, 0.35);
+}
+
+.nexobot-avatar .material-symbols-outlined {
+    font-size: 1.3rem;
+    color:     #fff;
+}
+
+.nexobot-online-dot {
+    position:     absolute;
+    bottom:       1px;
+    right:        1px;
+    width:        10px;
+    height:       10px;
+    background:   #10b981;
+    border-radius:50%;
+    border:       2px solid #0a0a0a;
+    animation:    live-pulse 1.6s ease-in-out infinite;
+}
+
+.nexobot-name {
+    font-size:   0.92rem;
+    font-weight: 700;
+    color:       #fff;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.nexobot-sub {
+    font-size:  0.67rem;
+    color:      rgba(255, 255, 255, 0.4);
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow:    hidden;
+    text-overflow: ellipsis;
+}
+
+.nexobot-header-actions {
+    display:     flex;
+    align-items: center;
+    gap:         0.4rem;
+    flex-shrink: 0;
+}
+
+/* Botón limpiar historial */
+#nexobot-clear {
+    background:      transparent;
+    border:          1px solid rgba(255, 255, 255, 0.07);
+    border-radius:   7px;
+    width:           30px;
+    height:          30px;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    cursor:          pointer;
+    color:           rgba(255, 255, 255, 0.35);
+    transition:      all 0.2s ease;
+}
+
+#nexobot-clear:hover {
+    background:  rgba(239, 68, 68, 0.1);
+    border-color:rgba(239, 68, 68, 0.3);
+    color:       #ef4444;
+}
+
+#nexobot-clear .material-symbols-outlined { font-size: 1rem; }
+
+/* Botón cerrar */
+#nexobot-close {
+    background:      rgba(255, 255, 255, 0.05);
+    border:          1px solid rgba(255, 255, 255, 0.08);
+    border-radius:   8px;
+    width:           32px;
+    height:          32px;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    cursor:          pointer;
+    color:           rgba(255, 255, 255, 0.5);
+    transition:      all 0.2s ease;
+}
+
+#nexobot-close:hover {
+    background:  rgba(255, 255, 255, 0.1);
+    border-color:rgba(255, 255, 255, 0.15);
+    color:       #fff;
+}
+
+#nexobot-close .material-symbols-outlined { font-size: 1.1rem; }
+
+/* ══════════════════════════════════════════════════════════
+   ÁREA DE MENSAJES
+   ══════════════════════════════════════════════════════════ */
+#nexobot-messages {
+    flex:            1;
+    overflow-y:      auto;
+    padding:         1rem 1rem 0.5rem;
+    display:         flex;
+    flex-direction:  column;
+    gap:             0.65rem;
+    scroll-behavior: smooth;
+}
+
+#nexobot-messages::-webkit-scrollbar        { width: 4px; }
+#nexobot-messages::-webkit-scrollbar-track  { background: transparent; }
+#nexobot-messages::-webkit-scrollbar-thumb  { background: rgba(255,107,0,0.25); border-radius: 4px; }
+#nexobot-messages::-webkit-scrollbar-thumb:hover { background: rgba(255,107,0,0.45); }
+
+/* ── Burbujas ────────────────────────────────────────────── */
+.chat-msg {
+    display:   flex;
+    gap:       0.45rem;
+    animation: msg-appear 0.3s ease-out both;
+}
+
+@keyframes msg-appear {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Avatar pequeño del bot */
+.msg-bot-avatar {
+    width:           26px;
+    height:          26px;
+    border-radius:   50%;
+    background:      linear-gradient(135deg, #ff6b00 0%, #dc2626 100%);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    flex-shrink:     0;
+    margin-top:      3px;
+}
+
+.msg-bot-avatar .material-symbols-outlined {
+    font-size: 0.85rem;
+    color:     #fff;
+}
+
+/* Burbuja bot */
+.chat-msg.bot .msg-bubble {
+    background:    var(--msg-bot-bg);
+    border:        1px solid rgba(255, 255, 255, 0.06);
+    border-left:   2px solid rgba(255, 107, 0, 0.45);
+    border-radius: 2px 12px 12px 12px;
+    padding:       0.65rem 0.85rem;
+    max-width:     88%;
+    color:         rgba(255, 255, 255, 0.87);
+    font-size:     0.82rem;
+    line-height:   1.58;
+}
+
+/* Burbuja usuario */
+.chat-msg.user {
+    flex-direction: row-reverse;
+}
+
+.chat-msg.user .msg-bubble {
+    background:    linear-gradient(135deg,
+                       rgba(255,107,0,0.82) 0%,
+                       rgba(220,38,38,0.82) 100%);
+    border:        1px solid rgba(255,107,0,0.2);
+    border-radius: 12px 2px 12px 12px;
+    padding:       0.65rem 0.85rem;
+    max-width:     82%;
+    color:         #fff;
+    font-size:     0.82rem;
+    line-height:   1.58;
+}
+
+/* Estilos de contenido dentro de burbuja bot */
+.chat-msg.bot .msg-bubble strong  { color: #ff8533; }
+.chat-msg.bot .msg-bubble em      { color: rgba(255,255,255,0.6); font-style: italic; }
+
+.chat-msg.bot .msg-bubble .msg-disclaimer {
+    display:       block;
+    margin-top:    0.55rem;
+    padding-top:   0.5rem;
+    border-top:    1px solid rgba(255,255,255,0.06);
+    font-size:     0.72rem;
+    color:         rgba(255,255,255,0.35);
+    font-style:    italic;
+}
+
+/* Timestamp */
+.msg-time {
+    font-size:   0.63rem;
+    color:       rgba(255, 255, 255, 0.2);
+    margin-top:  0.25rem;
+    padding:     0 0.2rem;
+    white-space: nowrap;
+}
+
+.chat-msg.user .msg-time { text-align: right; }
+
+/* ── Indicador "escribiendo…" ────────────────────────────── */
+.chat-typing {
+    display:     flex;
+    align-items: flex-start;
+    gap:         0.45rem;
+}
+
+.typing-bubble {
+    background:    var(--msg-bot-bg);
+    border:        1px solid rgba(255,255,255,0.06);
+    border-left:   2px solid rgba(255,107,0,0.4);
+    border-radius: 2px 12px 12px 12px;
+    padding:       0.65rem 1rem;
+    display:       flex;
+    align-items:   center;
+    gap:           5px;
+}
+
+.typing-dot {
+    width:        7px;
+    height:       7px;
+    border-radius:50%;
+    background:   rgba(255, 107, 0, 0.55);
+    animation:    typing-bounce 1.3s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.18s; }
+.typing-dot:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes typing-bounce {
+    0%, 60%, 100% { transform: translateY(0);   opacity: 0.5; }
+    30%            { transform: translateY(-6px); opacity: 1;   }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SUGERENCIAS RÁPIDAS
+   ══════════════════════════════════════════════════════════ */
+#nexobot-suggestions {
+    padding:     0.5rem 1rem 0.4rem;
+    display:     flex;
+    flex-wrap:   wrap;
+    gap:         0.4rem;
+    flex-shrink: 0;
+}
+
+.suggestion-chip {
+    background:    rgba(255, 107, 0, 0.07);
+    border:        1px solid rgba(255, 107, 0, 0.18);
+    border-radius: 20px;
+    padding:       0.28rem 0.72rem;
+    font-size:     0.72rem;
+    font-family:   'Space Grotesk', sans-serif;
+    color:         rgba(255, 255, 255, 0.65);
+    cursor:        pointer;
+    transition:    all 0.2s ease;
+    white-space:   nowrap;
+}
+
+.suggestion-chip:hover {
+    background:   rgba(255, 107, 0, 0.16);
+    border-color: rgba(255, 107, 0, 0.4);
+    color:        #fff;
+    transform:    translateY(-2px);
+    box-shadow:   0 4px 12px rgba(255, 107, 0, 0.15);
+}
+
+/* ══════════════════════════════════════════════════════════
+   INPUT
+   ══════════════════════════════════════════════════════════ */
+#nexobot-input-area {
+    padding:     0.7rem 0.85rem;
+    border-top:  1px solid rgba(255, 255, 255, 0.05);
+    background:  rgba(8, 8, 8, 0.5);
+    display:     flex;
+    align-items: flex-end;
+    gap:         0.55rem;
+    flex-shrink: 0;
+}
+
+#nexobot-input {
+    flex:        1;
+    background:  rgba(255, 255, 255, 0.05);
+    border:      1px solid rgba(255, 255, 255, 0.08);
+    border-radius:10px;
+    padding:     0.55rem 0.8rem;
+    color:       #fff;
+    font-size:   0.82rem;
+    font-family: 'Space Grotesk', sans-serif;
+    resize:      none;
+    max-height:  96px;
+    overflow-y:  auto;
+    line-height: 1.5;
+    transition:  border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    scrollbar-width: none;
+}
+
+#nexobot-input::-webkit-scrollbar { display: none; }
+#nexobot-input::placeholder        { color: rgba(255, 255, 255, 0.28); }
+
+#nexobot-input:focus {
+    outline:          none;
+    background:       rgba(255, 255, 255, 0.07);
+    border-color:     rgba(255, 107, 0, 0.45);
+    box-shadow:       0 0 0 3px rgba(255, 107, 0, 0.09);
+}
+
+#nexobot-input:disabled {
+    opacity: 0.5;
+    cursor:  not-allowed;
+}
+
+/* Botón enviar */
+#nexobot-send {
+    width:           38px;
+    height:          38px;
+    border-radius:   10px;
+    background:      linear-gradient(135deg, #ff6b00 0%, #dc2626 100%);
+    border:          none;
+    cursor:          pointer;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    flex-shrink:     0;
+    transition:      all 0.2s ease;
+    box-shadow:      0 2px 10px rgba(255, 107, 0, 0.3);
+}
+
+#nexobot-send:hover:not(:disabled) {
+    transform:  scale(1.08);
+    box-shadow: 0 4px 18px rgba(255, 107, 0, 0.55);
+}
+
+#nexobot-send:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+#nexobot-send:disabled {
+    opacity: 0.35;
+    cursor:  not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#nexobot-send .material-symbols-outlined {
+    font-size: 1.05rem;
+    color:     #fff;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════ */
+#nexobot-footer {
+    padding:    0.3rem 1rem 0.45rem;
+    text-align: center;
+    font-size:  0.62rem;
+    color:      rgba(255, 255, 255, 0.18);
+    flex-shrink:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE MÓVIL
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 576px) {
+    :root {
+        --chat-width:  calc(100vw - 1.5rem);
+        --chat-height: 68vh;
+    }
+
+    #nexobot-panel {
+        right:  0.75rem;
+        bottom: calc(1rem + 62px + 10px);
+    }
+
+    #nexobot-toggle {
+        right:  0.75rem;
+        bottom: 1rem;
+    }
+}
