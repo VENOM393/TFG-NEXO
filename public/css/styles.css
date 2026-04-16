@@ -180,3 +180,72 @@ body {
 .container-xxl { max-width: 1320px; padding-left: 1rem; padding-right: 1rem; }
 @media (min-width: 576px) { .container-xxl { padding-left: 1.5rem; padding-right: 1.5rem; } }
 @media (min-width: 992px) { .container-xxl { padding-left: 2rem; padding-right: 2rem; } }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE GLOBAL — Mobile & Tablet
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤991px) ─────────────────────────────────────── */
+@media (max-width: 991px) {
+    .display-3 { font-size: 2.6rem !important; }
+    .display-4 { font-size: 2rem   !important; }
+    .display-5 { font-size: 1.6rem !important; }
+}
+
+/* ── Móvil grande (≤767px) ───────────────────────────────── */
+@media (max-width: 767px) {
+    .display-3 { font-size: 2.2rem !important; }
+    .display-4 { font-size: 1.8rem !important; }
+    .display-5 { font-size: 1.4rem !important; }
+}
+
+/* ── Móvil pequeño (≤576px) ──────────────────────────────── */
+@media (max-width: 576px) {
+    .display-3 { font-size: 1.9rem !important; }
+    .display-4 { font-size: 1.6rem !important; }
+    .display-5 { font-size: 1.3rem !important; }
+
+    /* Navbar logo más compacto */
+    .navbar .fs-3 { font-size: 1.1rem !important; }
+    .navbar .fs-1 { font-size: 1.5rem !important; }
+
+    /* Container con más aire en bordes */
+    .container-xxl {
+        padding-left:  0.85rem !important;
+        padding-right: 0.85rem !important;
+    }
+
+    /* Botones lg en móvil: menos padding */
+    .btn-lg {
+        padding:   0.65rem 1.5rem !important;
+        font-size: 0.95rem       !important;
+    }
+
+    /* Modales: sin margen lateral en xs */
+    .modal-dialog { margin: 0.5rem !important; }
+    .modal-body   { padding: 1.25rem !important; }
+}
+
+/* ── Touch: reemplazar hover por active ──────────────────── */
+@media (hover: none) {
+    .hover-bg-white-10:active  { background-color: rgba(255,255,255,0.10) !important; }
+    .hover-bg-white-5:active   { background-color: rgba(255,255,255,0.05) !important; }
+    .hover-nexo-orange:active  { color: #ff6b00 !important; }
+    .hover-text-white:active   { color: #fff     !important; }
+    .btn-nexo:active           { transform: scale(0.97); box-shadow: 0 0 16px rgba(255,107,0,0.3); }
+    .feature-card:active       { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+    .transaction-item:active   { background-color: rgba(255,107,0,0.05); }
+
+    /* Desactivar animaciones en dispositivos táctiles */
+    .animate-float      { animation: none !important; transform: none !important; }
+    .animate-pulse-glow { animation: none !important; }
+    .floating-card      { animation: none !important; }
+}
+
+/* ── Preferencia del sistema: reducir movimiento ─────────── */
+@media (prefers-reduced-motion: reduce) {
+    .animate-float, .animate-pulse-glow, .floating-card,
+    .live-dot, .skeleton-row, .posicion-appear,
+    .nexobot-idle-glow, .badge-pulse { animation: none !important; }
+    .transition-all, .btn-nexo, .action-btn { transition: none !important; }
+}

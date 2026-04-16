@@ -35,3 +35,62 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE LANDING
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .hero-section {
+        padding-top:    90px;
+        padding-bottom: 60px;
+    }
+
+    /* CTA card: reducir padding interno */
+    .glass-panel.rounded-5 { padding: 2.5rem !important; }
+}
+
+/* ── Móvil ───────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .hero-section {
+        padding-top:    80px;
+        padding-bottom: 40px;
+    }
+
+    /* Stats "2M+ / $10B+ / 99.9%" */
+    .hero-stats { gap: 1.5rem !important; }
+    .hero-stats .h3 { font-size: 1.3rem !important; }
+
+    /* CTA card */
+    .glass-panel.rounded-5 { padding: 1.75rem !important; border-radius: 1rem !important; }
+}
+
+/* ── Móvil pequeño ───────────────────────────────────────── */
+@media (max-width: 576px) {
+    .hero-section {
+        padding-top:    70px;
+        padding-bottom: 28px;
+    }
+
+    /* Hero lead text */
+    .hero-section .lead { font-size: 0.95rem !important; }
+
+    /* Feature cards: menos padding */
+    .feature-card.glass-panel { padding: 1.25rem !important; }
+
+    /* Footer newsletter: columna en móvil */
+    footer .input-group {
+        flex-direction: column;
+        gap:            0.5rem;
+    }
+    footer .input-group .form-control { border-radius: 0.5rem !important; }
+    footer .input-group .btn          {
+        border-radius: 0.5rem !important;
+        width:         100%;
+    }
+
+    /* Footer columnas texto más pequeño */
+    footer h5     { font-size: 0.95rem !important; }
+    footer .small { font-size: 0.78rem !important; }
+}

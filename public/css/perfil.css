@@ -2,5 +2,52 @@
    NexoBank - Estilos Perfil (user.html)
    ========================================= */
 
-/* No hay estilos especificos por ahora,
-   todo se cubre con los globales y Bootstrap */
+/* ── Contenedor principal ────────────────────────────────── */
+.perfil-main {
+    margin-top:     6rem;
+    padding-bottom: 3rem;
+}
+
+/* ── Avatar ──────────────────────────────────────────────── */
+.perfil-avatar {
+    width:  120px;
+    height: 120px;
+}
+
+/* ── Ítem de configuración: active en touch ──────────────── */
+.config-item:active {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE PERFIL
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .perfil-main { margin-top: 5.5rem; }
+}
+
+/* ── Móvil ───────────────────────────────────────────────── */
+@media (max-width: 576px) {
+    .perfil-main { margin-top: 5rem; padding-bottom: 2rem; }
+
+    /* Avatar más pequeño */
+    .perfil-avatar {
+        width:  90px !important;
+        height: 90px !important;
+    }
+
+    /* Badges de usuario */
+    .perfil-main .badge { font-size: 0.72rem !important; padding: 0.3rem 0.65rem !important; }
+
+    /* Datos personales: campos en columna completa */
+    .perfil-main .col-md-6 { width: 100% !important; }
+
+    /* Items de configuración: padding reducido */
+    .config-item { padding: 0.75rem 0.85rem !important; }
+    .config-item .material-symbols-outlined { font-size: 1.1rem !important; }
+
+    /* Botón logout: padding */
+    .perfil-main .btn-outline-danger { padding: 0.6rem 1rem !important; }
+}

@@ -97,3 +97,69 @@
     transition: color 0.3s ease;
 }
 .action-btn:hover span.label { color: white; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE DASHBOARD
+   ═══════════════════════════════════════════════════════════ */
+
+/* Clases de utilidad responsive añadidas via JS/HTML */
+.credit-card-wrap { height: 224px; }
+.movimientos-panel { height: 500px; }
+.dashboard-header  { padding-top: 6rem; padding-bottom: 3rem; }
+
+/* ── Tablet (≤991px) ─────────────────────────────────────── */
+@media (max-width: 991px) {
+    /* Layout de 1 columna: la tarjeta queda arriba de los stats */
+    .dashboard-header { padding-top: 5.5rem !important; }
+
+    /* Movimientos: sin altura fija en tablet */
+    .movimientos-panel {
+        height:     auto    !important;
+        max-height: 520px   !important;
+    }
+}
+
+/* ── Móvil (≤576px) ──────────────────────────────────────── */
+@media (max-width: 576px) {
+    /* Header del dashboard */
+    .dashboard-header {
+        padding-top:    5rem   !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    /* Tarjeta de crédito: ratio fijo en lugar de altura fija */
+    .credit-card-wrap {
+        height:       auto    !important;
+        aspect-ratio: 1.586 / 1;
+    }
+
+    /* Botones de acción: más compactos */
+    .action-btn {
+        padding: 1rem 0.5rem !important;
+        gap:     0.5rem      !important;
+    }
+    .action-btn .icon-box {
+        width:  40px !important;
+        height: 40px !important;
+    }
+    .action-btn span.label { font-size: 0.78rem !important; }
+
+    /* Panel movimientos */
+    .movimientos-panel {
+        height:     auto  !important;
+        max-height: 55vh  !important;
+    }
+
+    /* Filtros de transacciones */
+    .movimientos-panel .btn-sm {
+        font-size: 0.68rem  !important;
+        padding:   0.2rem 0.5rem !important;
+    }
+
+    /* Iconos de transacción */
+    .transaction-icon-box {
+        width:  38px !important;
+        height: 38px !important;
+        border-radius: 9px !important;
+    }
+}

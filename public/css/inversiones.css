@@ -124,3 +124,71 @@
 @media (max-width: 576px) {
     .coin-badge { width: 36px; height: 36px; font-size: 0.58rem; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE INVERSIONES
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768-991px): columnas apiladas ───────────────── */
+@media (max-width: 991px) {
+    /* El header de inversiones necesita menos padding-top */
+    div[style*="padding-top:5.5rem"] {
+        padding-top: 5rem !important;
+    }
+
+    /* Distribución donut: en tablet, canvas más pequeño */
+    #dist-chart-wrap {
+        width:  130px !important;
+        height: 130px !important;
+    }
+}
+
+/* ── Móvil (≤767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    /* Botones de período del gráfico */
+    #chart-period-btns .btn { padding: 0.2rem 0.7rem !important; font-size: 0.78rem !important; }
+
+    /* Distribución: canvas + leyenda en columna */
+    .dist-layout {
+        flex-direction: column !important;
+        align-items:    center !important;
+    }
+    .dist-canvas-wrap {
+        width:  140px !important;
+        height: 140px !important;
+    }
+}
+
+/* ── Móvil (≤576px) ──────────────────────────────────────── */
+@media (max-width: 576px) {
+    /* Header: ocultar badge de actualización (poco espacio) */
+    .nexo-update-badge { display: none !important; }
+
+    /* Título del portfolio */
+    .h1.fw-bold.text-white.neon-text { font-size: 1.8rem !important; }
+
+    /* Posiciones: nombre de cripto más compacto */
+    .posicion-item .fw-semibold { font-size: 0.82rem !important; }
+    .posicion-item .fw-bold     { font-size: 0.84rem !important; }
+
+    /* Market items: texto más pequeño */
+    .market-coin-item .fw-semibold { font-size: 0.82rem !important; }
+
+    /* Distribución: canvas cuadrado pequeño */
+    .dist-canvas-wrap {
+        width:  120px !important;
+        height: 120px !important;
+    }
+
+    /* Gráfico de portfolio: altura reducida */
+    .chart-area { height: 170px !important; }
+
+    /* Stats del header: texto más compacto */
+    #stat-invested, #stat-pnl, #stat-best { font-size: 0.85rem !important; }
+
+    /* Botón comprar: solo icono en xs */
+    #btn-comprar span.d-none { display: inline !important; }
+
+    /* Panel de inversiones: menos padding */
+    .glass-panel.rounded-4 { padding: 1rem !important; }
+}

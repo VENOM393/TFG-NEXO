@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top glass-panel border-bottom border-white-10">
       <div class="container-xxl">
         <div class="d-flex align-items-center justify-content-between w-100">
-          <div class="d-flex align-items-center gap-4">
+          <div class="d-flex align-items-center gap-2 gap-md-4">
             <a href="/dashboard" class="d-flex align-items-center gap-2 text-decoration-none">
               <span class="material-symbols-outlined text-nexo-orange fs-1">currency_bitcoin</span>
               <span class="fs-3 fw-bold text-white">NEXO<span class="text-nexo-orange">BANK</span></span>
@@ -48,13 +48,13 @@
     </nav>
 
     <!-- Cabecera -->
-    <div class="position-relative overflow-hidden" style="padding-top:6rem;padding-bottom:3rem">
+    <div class="position-relative overflow-hidden dashboard-header" style="padding-top:6rem;padding-bottom:3rem">
       <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index:0;opacity:0.2">
         <div class="w-100 h-100 bg-gradient-nexo"></div>
       </div>
 
       <div class="container-xxl position-relative" style="z-index: 10">
-        <div class="d-flex justify-content-between align-items-end mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
           <div>
             <h2 class="text-secondary text-uppercase mb-1" style="font-size:0.875rem;letter-spacing:0.05em">
               Bienvenido de nuevo
@@ -74,10 +74,10 @@
 
         <div class="row g-4">
           <!-- Tarjeta + acciones -->
-          <div class="col-lg-4">
+          <div class="col-lg-4 col-md-12">
             <div class="d-flex flex-column gap-4">
               <!-- Tarjeta de credito con flip -->
-              <div class="perspective-1000 cursor-pointer" style="height:224px" onclick="flipCard()">
+              <div class="perspective-1000 cursor-pointer credit-card-wrap" style="height:224px" onclick="flipCard()">
                 <div class="position-relative preserve-3d transition-all w-100 h-100 shadow-lg rounded-3"
                   id="credit-card-inner" style="transition-duration:0.7s">
                   <!-- Frente -->
@@ -162,7 +162,7 @@
           </div>
 
           <!-- Panel derecho -->
-          <div class="col-lg-8">
+          <div class="col-lg-8 col-md-12">
             <div class="d-flex flex-column gap-4">
               <!-- Stats -->
               <div class="row g-3">
@@ -193,7 +193,7 @@
               </div>
 
               <!-- Movimientos -->
-              <div class="glass-panel rounded-3 p-4 d-flex flex-column" style="height:500px">
+              <div class="glass-panel rounded-3 p-4 d-flex flex-column movimientos-panel" style="height:500px">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <h3 class="fs-5 fw-semibold mb-0">Movimientos Recientes</h3>
                   <div class="d-flex gap-2">

@@ -8,3 +8,37 @@
     10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
     20%, 40%, 60%, 80% { transform: translateX(10px); }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE LOGIN
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Móvil pequeño (≤480px) ──────────────────────────────── */
+@media (max-width: 480px) {
+    /* Logo: icono + título más pequeños */
+    .login-logo-icon  { font-size: 2.5rem !important; }
+    .login-logo-title { font-size: 1.8rem !important; letter-spacing: -0.03em !important; }
+
+    /* Formulario: menos padding */
+    .glass-panel.rounded-3 { padding: 1.25rem !important; }
+
+    /* Inputs: padding izquierdo reducido (mantener espacio para el icono) */
+    .form-control.ps-5 { padding-left: 2.75rem !important; }
+
+    /* Credenciales demo: texto ligeramente más grande para legibilidad */
+    .font-monospace[style*="font-size:0.75rem"],
+    .font-monospace { font-size: 0.82rem !important; }
+}
+
+/* ── Muy pequeño (≤360px) ────────────────────────────────── */
+@media (max-width: 360px) {
+    .login-logo-icon  { font-size: 2rem   !important; }
+    .login-logo-title { font-size: 1.5rem !important; }
+
+    /* Recordar + olvidaste en columna */
+    .login-remember-row {
+        flex-direction: column !important;
+        align-items:    flex-start !important;
+        gap:            0.5rem;
+    }
+}

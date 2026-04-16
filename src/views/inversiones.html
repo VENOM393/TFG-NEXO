@@ -35,7 +35,7 @@
 
           <!-- Estado + avatar -->
           <div class="d-flex align-items-center gap-3">
-            <div class="d-none d-sm-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)">
+            <div class="nexo-update-badge d-none d-sm-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)">
               <span class="live-dot"></span>
               <span class="text-white-60 small" id="update-time">Conectando…</span>
             </div>
@@ -117,7 +117,7 @@
       <div class="row g-4">
 
         <!-- Columna izquierda -->
-        <div class="col-lg-7 d-flex flex-column gap-4">
+        <div class="col-lg-7 col-md-12 d-flex flex-column gap-4">
 
           <!-- Chart de evolución -->
           <div class="glass-panel rounded-4 p-4">
@@ -132,7 +132,7 @@
                 <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 period-btn" onclick="cambiarPeriodo('90')" data-period="90">3M</button>
               </div>
             </div>
-            <div style="height:220px;position:relative">
+            <div class="chart-area" style="height:220px;position:relative">
               <canvas id="portfolio-chart"></canvas>
               <!-- Spinner de carga — display controlado por JS -->
               <div id="chart-loading"
@@ -177,7 +177,7 @@
         </div>
 
         <!-- Columna derecha -->
-        <div class="col-lg-5 d-flex flex-column gap-4">
+        <div class="col-lg-5 col-md-12 d-flex flex-column gap-4">
 
           <!-- Mercado en vivo -->
           <div class="glass-panel rounded-4 p-4">
@@ -203,8 +203,8 @@
           <div class="glass-panel rounded-4 p-4">
             <h2 class="h5 fw-semibold mb-1 text-white">Distribución</h2>
             <p class="text-white-40 mb-3" style="font-size:0.72rem">Por valor de mercado actual</p>
-            <div class="d-flex align-items-center gap-3">
-              <div style="height:160px;width:160px;position:relative;flex-shrink:0">
+            <div class="d-flex align-items-center gap-3 dist-layout">
+              <div class="dist-canvas-wrap" style="height:160px;width:160px;position:relative;flex-shrink:0">
                 <canvas id="dist-chart"></canvas>
               </div>
               <div id="dist-legend" class="flex-grow-1 d-flex flex-column gap-2"></div>
